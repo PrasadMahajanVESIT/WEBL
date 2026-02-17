@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Simple Traffic Light</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: #f0f0f0;
+        font-family: sans-serif;
+      }
+
+      /* The black box */
+      .box {
+        background: #333;
+        padding: 20px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      /* The light circles */
+      .light {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #1a1a1a;
+        transition: 0.3s;
+      }
+
+      /* Colors when active */
+      .red {
+        background: #ff3b30;
+        box-shadow: 0 0 20px #ff3b30;
+      }
+      .yellow {
+        background: #ffcc00;
+        box-shadow: 0 0 20px #ffcc00;
+      }
+      .green {
+        background: #4cd964;
+        box-shadow: 0 0 20px #4cd964;
+      }
+
+      button {
+        margin-top: 30px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div id="r" class="light red"></div>
+      <div id="y" class="light"></div>
+      <div id="g" class="light"></div>
+    </div>
+
+    <button onclick="changeLight()" id="but"></button>
+
+    <script>
+      let currentLight = "red";
+
+      function changeLight() {
+        // Get the elements
+        let r = document.getElementById("r");
+        let y = document.getElementById("y");
+        let g = document.getElementById("g");
+        let but = document.getElementById("but");
+
+        // Logic and UI update combined
+        if (currentLight === "red") {
+          r.className = "light"; // Turn red off
+          g.className = "light green"; // Turn green on
+          currentLight = "green";
+          but.textContent = "Change to Yellow";
+        } else if (currentLight === "green") {
+          g.className = "light"; // Turn green off
+          y.className = "light yellow"; // Turn yellow on
+          currentLight = "yellow";
+          but.textContent = "Change to Red";
+        } else if (currentLight === "yellow") {
+          y.className = "light"; // Turn yellow off
+          r.className = "light red"; // Turn red on
+          currentLight = "red";
+          but.textContent = "Change to Green";
+        }
+      }
+    </script>
+  </body>
+</html>
