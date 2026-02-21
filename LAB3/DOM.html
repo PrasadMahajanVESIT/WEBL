@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prasad Mahajan | Portfolio & DOM Lab</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fb;
+            color: #333;
+            transition: background-color 0.4s ease;
+        }
+
+        header {
+            background-color: #cfd9df;
+            text-align: center;
+            padding: 30px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            padding: 40px;
+            gap: 30px;
+        }
+
+        .profile-section img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #dde7ee;
+        }
+
+        .profile-description h2 {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 20px 40px 40px;
+        }
+
+        .info-box {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .info-box h3 {
+            margin-bottom: 10px;
+            color: #4a6fa5;
+        }
+
+        .lab-section {
+            padding: 40px;
+            background: #ffffff;
+            margin: 0 40px 40px;
+            border-radius: 12px;
+            border: 2px dashed #cfd9df;
+        }
+
+        .btn-group-custom {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            background-color: #cfd9df;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body id="main-body">
+
+    <header>
+        <h1>Prasad Mahajan</h1>
+        <p>Web Developer | Student | Explorer</p>
+    </header>
+
+    <section class="profile-section">
+        <img src="images.jpg" alt="Profile Photo">
+        <div class="profile-description">
+            <h2>About Me</h2>
+            <p>
+                I am a passionate web developer with a strong desire to create
+                clean, user-friendly and visually appealing web applications.
+                I enjoy learning new technologies and continuously improving my skills.
+            </p>
+        </div>
+    </section>
+
+    <section class="info-container">
+        <div class="info-box">
+            <h3>Hobbies</h3>
+            <p>Reading tech blogs, coding, listening to music, traveling and photography.</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Passion</h3>
+            <p>I am passionate about web development, UI/UX design, and building meaningful digital experiences.</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Past Work</h3>
+            <p>Developed personal websites, academic projects, landing pages, and small business websites.</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Social Life</h3>
+            <p>Active in developer communities, tech meetups, online forums, and collaborative projects.</p>
+        </div>
+    </section>
+
+    <section class="lab-section">
+        <h2 class="text-center mb-4">Practical No. 2: DOM Manipulation</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h4>1. Change Paragraph Text</h4>
+                <p id="text-to-change">Click the button to update this message.</p>
+                <button class="btn btn-primary" onclick="changeText()">Update Text</button>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <h4>2 & 3. Dynamic List Management</h4>
+                <button class="btn btn-success" onclick="addItem()">Add Item</button>
+                <button class="btn btn-danger" onclick="removeItem()">Remove Last</button>
+                <ul id="dynamic-list" class="mt-3">
+                    <li>Initial Skill</li>
+                </ul>
+            </div>
+
+            <div class="col-md-12">
+                <h4>4. Change Background Color</h4>
+                <div class="btn-group-custom">
+                    <button class="btn btn-outline-dark" onclick="changeBg('#f5f7fb')">Default</button>
+                    <button class="btn btn-warning" onclick="changeBg('#fff3cd')">Warm</button>
+                    <button class="btn btn-info text-white" onclick="changeBg('#d1ecf1')">Cool</button>
+                    <button class="btn btn-success" onclick="changeBg('#d4edda')">Nature</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            <a href="#">Instagram</a> |
+            <a href="#">GitHub</a> |
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+
+    <script>
+        function changeText() {
+            document.getElementById('text-to-change').innerText = "Text has been modified using JavaScript!";
+        }
+
+        function addItem() {
+            const list = document.getElementById('dynamic-list');
+            const li = document.createElement('li');
+            li.innerText = "New List Item " + (list.children.length + 1);
+            list.appendChild(li);
+        }
+
+        function removeItem() {
+            const list = document.getElementById('dynamic-list');
+            if(list.lastElementChild) {
+                list.removeChild(list.lastElementChild);
+            }
+        }
+
+        function changeBg(color) {
+            document.getElementById('main-body').style.backgroundColor = color;
+        }
+    </script>
+
+</body>
+</html>
