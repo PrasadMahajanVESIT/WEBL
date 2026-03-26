@@ -1,0 +1,12 @@
+<h2>Item List</h2>
+<div *ngIf="errorMessage; else itemList">
+  <p>{{ errorMessage }}</p>
+</div>
+<ng-template #itemList>
+  <ul>
+    <li *ngFor="let item of items">
+      <strong>{{ item.title }}</strong>
+      <p>{{ item.body }}</p>
+    </li>
+  </ul>
+</ng-template>
