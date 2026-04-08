@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: #333;
+  color: white;
+}
+
+.header a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 60px;
+  background: #f4f4f4;
+}
+
+.hero button {
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+/* Content */
+.content {
+  padding: 40px;
+  text-align: center;
+}
+
+/* Contact */
+.contact {
+  padding: 40px;
+  text-align: center;
+}
+
+.contact input {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 200px;
+}
+
+.contact button {
+  padding: 10px 20px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background: #333;
+  color: white;
+}
